@@ -16,7 +16,7 @@ sudo apt remove docker-* -y
 sudo apt-get autoremove --purge -y
 sudo rm -rf /home/ubuntu/resources/ /home/ubuntu/logs/ /home/ubuntu/publisher* /home/ubuntu/npa* /etc/cron.d/npa*
 #Add InfluxDB gpg Key for repo
-sudo curl -sL https://repos.influxdata.com/influxdb.key | sudo apt-key add -
+sudo curl -sL https://repos.influxdata.com/influxdata-archive_compat.key | sudo apt-key add -
 #Add InfluxDB repo to apt sources 
 echo "deb https://repos.influxdata.com/ubuntu focal stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
 #Install InfluxDB

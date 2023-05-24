@@ -10,7 +10,7 @@ sudo bash -c "sudo cat <<'EOF' | sudo tee /etc/apt/sources.list.d/influxdata.lis
 deb https://repos.influxdata.com/ubuntu $(lsb_release -cs) stable
 EOF"
 #Download Telegraf gpg key for repo
-sudo curl -sL https://repos.influxdata.com/influxdb.key | sudo apt-key add -
+sudo curl -sL https://repos.influxdata.com/influxdata-archive_compat.key | sudo apt-key add -
 #Update apt repo list and install Telegraf agent
 sudo apt update && sudo apt install telegraf -y
 #Update Telegraf Config file

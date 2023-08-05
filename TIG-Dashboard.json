@@ -24,7 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 5,
+  "id": 2,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -105,7 +105,7 @@
         "x": 0,
         "y": 1
       },
-      "id": 26,
+      "id": 2,
       "options": {
         "legend": {
           "calcs": [],
@@ -161,12 +161,12 @@
             {
               "key": "server",
               "operator": "=",
-              "value": "coupa.com"
+              "value": "onedrive.live.com"
             }
           ]
         }
       ],
-      "title": "coupa.com",
+      "title": "onedrive.live.com",
       "type": "timeseries"
     },
     {
@@ -489,7 +489,7 @@
         "x": 0,
         "y": 9
       },
-      "id": 2,
+      "id": 5,
       "options": {
         "legend": {
           "calcs": [],
@@ -545,12 +545,12 @@
             {
               "key": "server",
               "operator": "=",
-              "value": "onedrive.live.com"
+              "value": "docs.google.com"
             }
           ]
         }
       ],
-      "title": "onedrive.live.com",
+      "title": "docs.google.com",
       "type": "timeseries"
     },
     {
@@ -873,7 +873,7 @@
         "x": 0,
         "y": 17
       },
-      "id": 5,
+      "id": 6,
       "options": {
         "legend": {
           "calcs": [],
@@ -929,12 +929,12 @@
             {
               "key": "server",
               "operator": "=",
-              "value": "docs.google.com"
+              "value": "zoom.us"
             }
           ]
         }
       ],
-      "title": "docs.google.com",
+      "title": "zoom.us",
       "type": "timeseries"
     },
     {
@@ -1257,7 +1257,7 @@
         "x": 0,
         "y": 25
       },
-      "id": 6,
+      "id": 11,
       "options": {
         "legend": {
           "calcs": [],
@@ -1313,12 +1313,12 @@
             {
               "key": "server",
               "operator": "=",
-              "value": "zoom.us"
+              "value": "docusign.com"
             }
           ]
         }
       ],
-      "title": "zoom.us",
+      "title": "docusign.com",
       "type": "timeseries"
     },
     {
@@ -1641,134 +1641,6 @@
         "x": 0,
         "y": 33
       },
-      "id": 11,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "P4B5EB7AC8565B06F"
-          },
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "net_response",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "response_time"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "last"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "server",
-              "operator": "=",
-              "value": "docusign.com"
-            }
-          ]
-        }
-      ],
-      "title": "docusign.com",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "P4B5EB7AC8565B06F"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "s"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 7,
-        "x": 7,
-        "y": 33
-      },
       "id": 24,
       "options": {
         "legend": {
@@ -1894,7 +1766,7 @@
       "gridPos": {
         "h": 8,
         "w": 7,
-        "x": 14,
+        "x": 7,
         "y": 33
       },
       "id": 23,
@@ -1953,12 +1825,12 @@
             {
               "key": "server",
               "operator": "=",
-              "value": "gateway-glencore.de.goskope.com"
+              "value": "gateway.goskope.com"
             }
           ]
         }
       ],
-      "title": "gateway-glencore.de.goskope.com",
+      "title": "gateway.goskope.com",
       "type": "timeseries"
     },
     {
@@ -2038,7 +1910,7 @@
         "x": 0,
         "y": 42
       },
-      "id": 25,
+      "id": 17,
       "options": {
         "legend": {
           "calcs": [],
@@ -2095,12 +1967,12 @@
             {
               "key": "server",
               "operator": "=",
-              "value": "https://coupa.com"
+              "value": "https://onedrive.live.com"
             }
           ]
         }
       ],
-      "title": "coupa.com",
+      "title": "onedrive.live.com",
       "type": "timeseries"
     },
     {
@@ -2425,135 +2297,6 @@
         "x": 0,
         "y": 50
       },
-      "id": 17,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "P4B5EB7AC8565B06F"
-          },
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "hide": false,
-          "measurement": "http_response",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "response_time"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "last"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "server",
-              "operator": "=",
-              "value": "https://onedrive.live.com"
-            }
-          ]
-        }
-      ],
-      "title": "onedrive.live.com",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "P4B5EB7AC8565B06F"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "s"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 7,
-        "x": 7,
-        "y": 50
-      },
       "id": 22,
       "options": {
         "legend": {
@@ -2620,8 +2363,8 @@
       "type": "timeseries"
     }
   ],
-  "refresh": false,
-  "schemaVersion": 37,
+  "refresh": "",
+  "schemaVersion": 38,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -2635,6 +2378,6 @@
   "timezone": "",
   "title": "Performance Monitoring",
   "uid": "IhwZSs24z",
-  "version": 10,
+  "version": 3,
   "weekStart": ""
 }

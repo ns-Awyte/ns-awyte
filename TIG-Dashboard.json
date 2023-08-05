@@ -141,6 +141,8 @@
           "measurement": "net_response",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "SELECT last(\"response_time\") FROM \"default\".\"net_response\" WHERE (\"server\" = 'onedrive.live.com' AND \"host\"::tag =~ /^$Source$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -162,6 +164,12 @@
               "key": "server",
               "operator": "=",
               "value": "onedrive.live.com"
+            },
+            {
+              "condition": "AND",
+              "key": "host::tag",
+              "operator": "=~",
+              "value": "/^$Source$/"
             }
           ]
         }
@@ -290,6 +298,12 @@
               "key": "server",
               "operator": "=",
               "value": "test.my.salesforce.com"
+            },
+            {
+              "condition": "AND",
+              "key": "host::tag",
+              "operator": "=~",
+              "value": "/^$Source$/"
             }
           ]
         }
@@ -418,6 +432,12 @@
               "key": "server",
               "operator": "=",
               "value": "slack.com"
+            },
+            {
+              "condition": "AND",
+              "key": "host::tag",
+              "operator": "=~",
+              "value": "/^$Source$/"
             }
           ]
         }
@@ -546,6 +566,12 @@
               "key": "server",
               "operator": "=",
               "value": "docs.google.com"
+            },
+            {
+              "condition": "AND",
+              "key": "host::tag",
+              "operator": "=~",
+              "value": "/^$Source$/"
             }
           ]
         }
@@ -674,6 +700,12 @@
               "key": "server",
               "operator": "=",
               "value": "atlassian.com"
+            },
+            {
+              "condition": "AND",
+              "key": "host::tag",
+              "operator": "=~",
+              "value": "/^$Source$/"
             }
           ]
         }
@@ -802,6 +834,12 @@
               "key": "server",
               "operator": "=",
               "value": "aws.amazon.com"
+            },
+            {
+              "condition": "AND",
+              "key": "host::tag",
+              "operator": "=~",
+              "value": "/^$Source$/"
             }
           ]
         }
@@ -930,6 +968,12 @@
               "key": "server",
               "operator": "=",
               "value": "zoom.us"
+            },
+            {
+              "condition": "AND",
+              "key": "host::tag",
+              "operator": "=~",
+              "value": "/^$Source$/"
             }
           ]
         }
@@ -1058,6 +1102,12 @@
               "key": "server",
               "operator": "=",
               "value": "box.com"
+            },
+            {
+              "condition": "AND",
+              "key": "host::tag",
+              "operator": "=~",
+              "value": "/^$Source$/"
             }
           ]
         }
@@ -1186,6 +1236,12 @@
               "key": "server",
               "operator": "=",
               "value": "concursolutions.com"
+            },
+            {
+              "condition": "AND",
+              "key": "host::tag",
+              "operator": "=~",
+              "value": "/^$Source$/"
             }
           ]
         }
@@ -1314,6 +1370,12 @@
               "key": "server",
               "operator": "=",
               "value": "docusign.com"
+            },
+            {
+              "condition": "AND",
+              "key": "host::tag",
+              "operator": "=~",
+              "value": "/^$Source$/"
             }
           ]
         }
@@ -1442,6 +1504,12 @@
               "key": "server",
               "operator": "=",
               "value": "github.com"
+            },
+            {
+              "condition": "AND",
+              "key": "host::tag",
+              "operator": "=~",
+              "value": "/^$Source$/"
             }
           ]
         }
@@ -1570,6 +1638,12 @@
               "key": "server",
               "operator": "=",
               "value": "dropbox.com"
+            },
+            {
+              "condition": "AND",
+              "key": "host::tag",
+              "operator": "=~",
+              "value": "/^$Source$/"
             }
           ]
         }
@@ -1698,6 +1772,12 @@
               "key": "server",
               "operator": "=",
               "value": "gateway.npa.goskope.com"
+            },
+            {
+              "condition": "AND",
+              "key": "host::tag",
+              "operator": "=~",
+              "value": "/^$Source$/"
             }
           ]
         }
@@ -1826,6 +1906,12 @@
               "key": "server",
               "operator": "=",
               "value": "gateway.goskope.com"
+            },
+            {
+              "condition": "AND",
+              "key": "host::tag",
+              "operator": "=~",
+              "value": "/^$Source$/"
             }
           ]
         }
@@ -1968,6 +2054,12 @@
               "key": "server",
               "operator": "=",
               "value": "https://onedrive.live.com"
+            },
+            {
+              "condition": "AND",
+              "key": "host::tag",
+              "operator": "=~",
+              "value": "/^$Source$/"
             }
           ]
         }
@@ -2097,6 +2189,12 @@
               "key": "server",
               "operator": "=",
               "value": "https://test.my.salesforce.com"
+            },
+            {
+              "condition": "AND",
+              "key": "host::tag",
+              "operator": "=~",
+              "value": "/^$Source$/"
             }
           ]
         }
@@ -2226,6 +2324,12 @@
               "key": "server",
               "operator": "=",
               "value": "https://github.com"
+            },
+            {
+              "condition": "AND",
+              "key": "host::tag",
+              "operator": "=~",
+              "value": "/^$Source$/"
             }
           ]
         }
@@ -2355,6 +2459,12 @@
               "key": "server",
               "operator": "=",
               "value": "https://docs.google.com"
+            },
+            {
+              "condition": "AND",
+              "key": "host::tag",
+              "operator": "=~",
+              "value": "/^$Source$/"
             }
           ]
         }
@@ -2368,7 +2478,32 @@
   "style": "dark",
   "tags": [],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "current": {
+          "selected": true,
+          "text": "PW00FAMX",
+          "value": "PW00FAMX"
+        },
+        "datasource": {
+          "type": "influxdb",
+          "uid": "P4B5EB7AC8565B06F"
+        },
+        "definition": "SHOW TAG VALUES WITH KEY = \"host\"",
+        "description": "host::tag",
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "Source",
+        "options": [],
+        "query": "SHOW TAG VALUES WITH KEY = \"host\"",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      }
+    ]
   },
   "time": {
     "from": "now-6h",
@@ -2378,6 +2513,6 @@
   "timezone": "",
   "title": "Performance Monitoring",
   "uid": "IhwZSs24z",
-  "version": 3,
+  "version": 5,
   "weekStart": ""
 }

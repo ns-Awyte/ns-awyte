@@ -27,5 +27,8 @@ if (( availSpace < reqSpace )); then
   exit 1
 fi
 
+#ensure all options are answered with yes to make it completely uninteractive
+DEBIAN_FRONTEND=noninteractive apt-get -o Dpkg::Options::=--force-confold -o Dpkg::Options::=--force-confdef -y upgrade
+
 # The below will install linux-image-generic apt package that will manage kernel updates as part of apt upgrade 
 sudo apt update && sudo apt install linux-image-generic -y && sudo apt upgrade -y && sudo reboot

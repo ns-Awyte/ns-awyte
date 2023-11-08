@@ -21,9 +21,7 @@ command -v pvresize >/dev/null 2>&1 || { echo "pvresize is not installed. Aborti
 command -v lvresize >/dev/null 2>&1 || { echo "lvresize is not installed. Aborting." >&2; exit 1; }
 
 # Grow the partition AFTER the physical hard drive has been increased
-sudo growpart /dev/sda 3
-sudo pvresize /dev/sda3
-sudo lvresize -l+100%FREE --resizefs /dev/mapper/ubuntu--vg-ubuntu--lv
+sudo growpart /dev/sda 3 && sudo pvresize /dev/sda3 && sudo lvresize -l+100%FREE --resizefs /dev/mapper/ubuntu--vg-ubuntu--lv
 
 #Check partition has been increased and disk space is above 6GB
 reqSpace=6000000

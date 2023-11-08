@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # This script will expand the Publisher partition to use all available space AFTER the physical hard drive 
 # space has been increased on the Virtual Machine HyperVisor
 # It will then install linux-image-generic to allow for Kernel updates
@@ -9,6 +10,10 @@ if [ "$(id -u)" != 0 ]; then
   echo "Please run this script as root or using sudo."
   exit 1
 fi
+
+#ensure all options are answered with yes to make it completely uninteractive
+export DEBIAN_FRONTEND=noninteractive
+/usr/bin/yes '' | /usr/bin/apt-get --yes --force-yes --quiet -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" install "$@"
 
 # Check if required commands are available
 command -v growpart >/dev/null 2>&1 || { echo "growpart is not installed. Aborting." >&2; exit 1; }

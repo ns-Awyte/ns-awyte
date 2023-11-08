@@ -34,7 +34,4 @@ if (( availSpace < reqSpace )); then
 fi
 
 # The below will install linux-image-generic apt package that will manage kernel updates as part of apt upgrade 
-sudo apt update
-sudo apt install linux-image-generic -y
-sudo apt upgrade -y
-sudo reboot
+sudo apt update && sudo apt install linux-image-generic -y && sudo apt upgrade -y && sudo reboot

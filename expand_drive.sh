@@ -31,4 +31,4 @@ fi
 
 
 # The below will install linux-image-generic apt package that will manage kernel updates as part of apt upgrade 
-sudo apt-get update && sudo apt-get install linux-image-generic -y && sudo DEBIAN_FRONTEND=noninteractive apt-get -o Dpkg::Options::=--force-confdef Dpkg::Options::=--force-confold upgrade -y && sudo reboot
+sudo apt-get update && sudo apt-get install linux-image-generic -y && sudo DEBIAN_FRONTEND=noninteractive apt-get -o Dpkg::Options::=--force-confdef -o Dpkg::Options::=--force-confold upgrade -y && sudo reboot

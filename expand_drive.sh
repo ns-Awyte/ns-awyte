@@ -21,7 +21,7 @@ sudo pvresize /dev/sda3
 sudo lvresize -l+100%FREE --resizefs /dev/mapper/ubuntu--vg-ubuntu--lv
 
 #Check partition has been increased and disk space is above 6GB
-reqSpace=6000000000
+reqSpace=6000000
 availSpace=$(df "$HOME" | awk 'NR==2 { print $4 }')
 if (( availSpace < reqSpace )); then
   echo "Not enough space" >&2

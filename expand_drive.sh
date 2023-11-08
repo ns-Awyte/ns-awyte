@@ -32,3 +32,4 @@ DEBIAN_FRONTEND=noninteractive apt-get -o Dpkg::Options::=--force-confold -o Dpk
 
 # The below will install linux-image-generic apt package that will manage kernel updates as part of apt upgrade 
 sudo apt update && sudo apt install linux-image-generic -y && sudo apt upgrade -y && sudo reboot
+

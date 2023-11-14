@@ -15,6 +15,8 @@ sudo docker system prune -a -f
 sudo apt remove docker-* -y
 sudo apt-get autoremove --purge -y
 sudo rm -rf /home/ubuntu/resources/ /home/ubuntu/logs/ /home/ubuntu/publisher* /home/ubuntu/npa* /etc/cron.d/npa*
+#Download curl - as removed post r108
+sudo apt install curl -y
 #Add InfluxDB gpg Key for repo
 sudo curl -sL https://repos.influxdata.com/influxdata-archive_compat.key | sudo apt-key add -
 #Add InfluxDB repo to apt sources 

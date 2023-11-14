@@ -9,6 +9,8 @@ read -p 'Please enter your InfluxDB Monitoring Server IP Address (eg: 10.213.1.1
 sudo bash -c "sudo cat <<'EOF' | sudo tee /etc/apt/sources.list.d/influxdata.list
 deb https://repos.influxdata.com/ubuntu $(lsb_release -cs) stable
 EOF"
+#Download curl - as removed post r108
+sudo apt install curl -y
 #Download Telegraf gpg key for repo
 sudo curl -sL https://repos.influxdata.com/influxdata-archive_compat.key | sudo apt-key add -
 #Update apt repo list and install Telegraf agent

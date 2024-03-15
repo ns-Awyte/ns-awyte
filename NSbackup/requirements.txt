@@ -1,7 +1,2 @@
-pprint
-bs4
 requests
-json
-base64
-re
-sys
+beautifulsoup4

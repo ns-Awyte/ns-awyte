@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# This is a generic provisioning file
-# It's currentl applied to all VM types (AMI's and OVA's)
+# This is a provisioning file
+# It can be used to provision a Publisher in AliCloud
 
 if [ "$PUBLISHER_REPO" = "" ] ; then
     PUBLISHER_REPO=ns-1-registry.cn-shenzhen.cr.aliyuncs.com/npa/publisher

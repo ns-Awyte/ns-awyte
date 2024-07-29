@@ -55,7 +55,7 @@ cat <<EOF > /etc/telegraf/telegraf.conf
     report_active = false
 [[inputs.disk]]
     ignore_fs = ["tmpfs", "devtmpfs", "devfs", "iso9660", "overlay", "aufs", "squashfs"]
-[[inputs.io]]
+[[inputs.diskio]]
 [[inputs.mem]]
 [[inputs.net]]
 [[inputs.system]]

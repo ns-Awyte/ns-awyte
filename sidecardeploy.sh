@@ -26,14 +26,10 @@ else
   echo "✅ Disk space check passed. ($(df -h / | awk 'NR==2 {print $4}') available)"
 fi
 
----
-
 # --- 2. System Update & Prerequisite Installation ---
 echo "Updating package lists and installing prerequisites..."
 sudo apt-get update
 sudo apt-get install -y unzip ca-certificates curl snapd
-
----
 
 # --- 3. Install Docker ---
 echo "⚙️  Installing Docker..."
@@ -58,8 +54,6 @@ echo "✅ Docker installed successfully."
 echo "Verifying Docker installation..."
 sudo docker run hello-world
 
----
-
 # --- 4. Install Minikube ---
 echo "⚙️  Installing Minikube..."
 curl -LO https://github.com/kubernetes/minikube/releases/latest/download/minikube-linux-amd64
@@ -68,8 +62,6 @@ echo "✅ Minikube installed successfully."
 
 echo "🚀 Starting Minikube cluster... (This may take a few minutes)"
 minikube start
-
----
 
 # --- 5. Install kubectl & Helm ---
 echo "⚙️  Installing kubectl and Helm via snap..."
@@ -83,14 +75,10 @@ kubectl get po -A
 echo "Verifying Helm installation..."
 helm version
 
----
-
 # --- 6. Download and Unzip Helm Chart ---
 echo "📥 Downloading and unzipping the Netskope Helm chart..."
 wget -O helm-dspm-sidecar.zip https://netskope-dspm-release.s3.us-west-2.amazonaws.com/helm-dspm-sidecar.zip
 unzip -o helm-dspm-sidecar.zip # Use -o to overwrite without prompting
-
----
 
 # --- 7. Configure and Deploy Helm Chart ---
 echo "📝 Please provide the following details for the Helm deployment."
@@ -126,8 +114,6 @@ helm upgrade --install netskope netskope --namespace netskope --create-namespace
  --set sidecarCount=1
 
 echo "🎉 Helm chart deployed!"
-
----
 
 # --- 8. Post-Deployment Management Menu ---
 echo "Entering management mode..."

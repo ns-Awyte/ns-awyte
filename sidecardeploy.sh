@@ -96,8 +96,8 @@ read SideCarname
 echo -n "Enter your Tenant Name (e.g., 'mycompany' for mycompany.goskope.com): "
 read tenant
 
-echo -n "Enter the Registration Token (input will be hidden): "
-read -s Regtoken
+echo -n "Enter the Registration Token: "
+read Regtoken
 echo # Adds a newline after the hidden input for better formatting
 
 # Validate that inputs are not empty

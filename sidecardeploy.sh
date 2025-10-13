@@ -54,17 +54,22 @@ echo "✅ Docker installed successfully."
 echo "Verifying Docker installation..."
 sudo docker run hello-world
 
-# --- 4. Install Minikube ---
+# --- 4. Configure Docker Permissions ---
+echo "⚙️  Adding current user to the 'docker' group..."
+sudo usermod -aG docker $USER
+echo "Permissions applied. Minikube will now run with the new group permissions."
+
+# --- 5. Install Minikube ---
 echo "⚙️  Installing Minikube..."
 curl -LO https://github.com/kubernetes/minikube/releases/latest/download/minikube-linux-amd64
 sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
 echo "✅ Minikube installed successfully."
 
 echo "🚀 Starting Minikube cluster... (This may take a few minutes)"
-sudo usermod -aG docker $USER && newgrp docker
-minikube start
+# Use 'sg' to execute the command with the new group permissions without needing to log out
+sg docker -c "minikube start"
 
-# --- 5. Install kubectl & Helm ---
+# --- 6. Install kubectl & Helm ---
 echo "⚙️  Installing kubectl and Helm via snap..."
 sudo snap install kubectl --classic
 sudo snap install helm --classic
@@ -76,12 +81,12 @@ kubectl get po -A
 echo "Verifying Helm installation..."
 helm version
 
-# --- 6. Download and Unzip Helm Chart ---
+# --- 7. Download and Unzip Helm Chart ---
 echo "📥 Downloading and unzipping the Netskope Helm chart..."
 wget -O helm-dspm-sidecar.zip https://netskope-dspm-release.s3.us-west-2.amazonaws.com/helm-dspm-sidecar.zip
 unzip -o helm-dspm-sidecar.zip # Use -o to overwrite without prompting
 
-# --- 7. Configure and Deploy Helm Chart ---
+# --- 8. Configure and Deploy Helm Chart ---
 echo "📝 Please provide the following details for the Helm deployment."
 
 # Prompt for user input
@@ -116,7 +121,7 @@ helm upgrade --install netskope netskope --namespace netskope --create-namespace
 
 echo "🎉 Helm chart deployed!"
 
-# --- 8. Post-Deployment Management Menu ---
+# --- 9. Post-Deployment Management Menu ---
 echo "Entering management mode..."
 
 while true; do
@@ -137,7 +142,6 @@ while true; do
     2)
       echo "--- Fetching DSPM-Sidecar logs... ---"
       # This command finds the pod name automatically and tails the log
-      # It may fail if no pod is found, which is expected behavior
       POD_NAME=$(kubectl get pods -n netskope -o jsonpath='{.items[?(@.metadata.labels.app\.kubernetes\.io/name=="dspm-sidecar")].metadata.name}')
       if [ -n "$POD_NAME" ]; then
         kubectl exec -it -n netskope "$POD_NAME" -- tail -50 logs/netskopedspm.log

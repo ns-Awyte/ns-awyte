@@ -61,6 +61,7 @@ sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-a
 echo "✅ Minikube installed successfully."
 
 echo "🚀 Starting Minikube cluster... (This may take a few minutes)"
+sudo usermod -aG docker $USER && newgrp docker
 minikube start
 
 # --- 5. Install kubectl & Helm ---

@@ -65,9 +65,10 @@ curl -LO https://github.com/kubernetes/minikube/releases/latest/download/minikub
 sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
 echo "✅ Minikube installed successfully."
 
-echo "🚀 Starting Minikube cluster... (This may take a few minutes)"
-# Use 'sg' to execute the command with the new group permissions without needing to log out
-sg docker -c "minikube start"
+echo "🚀 Starting Minikube cluster with custom resources... (This may take a few minutes)"
+# Use 'sg' to execute the command with the new group permissions
+# Added --cpus and --memory flags to allocate more resources
+sg docker -c "minikube start --cpus=4 --memory=12g"
 
 # --- 6. Install kubectl & Helm ---
 echo "⚙️  Installing kubectl and Helm via snap..."
@@ -98,7 +99,7 @@ read tenant
 
 echo -n "Enter the Registration Token: "
 read Regtoken
-echo # Adds a newline after the hidden input for better formatting
+echo # Adds a newline for better formatting
 
 # Validate that inputs are not empty
 if [ -z "$SideCarname" ] || [ -z "$tenant" ] || [ -z "$Regtoken" ]; then
@@ -128,10 +129,11 @@ while true; do
   echo ""
   echo "What would you like to do next?"
   echo "  1) Check Pod status"
-  echo "  2) Check DSPM-Sidecar Container Log (last 50 lines)"
-  echo "  3) Exit"
+  echo "  2) Describe Pods"
+  echo "  3) Check DSPM-Sidecar Container Log (last 50 lines)"
+  echo "  4) Exit"
   
-  read -p "Enter your choice [1-3]: " choice
+  read -p "Enter your choice [1-4]: " choice
 
   case "$choice" in
     1)
@@ -140,9 +142,14 @@ while true; do
       echo "----------------------------------------------------"
       ;;
     2)
+      echo "--- Describing Pods in 'netskope' namespace ---"
+      kubectl describe pods -n netskope
+      echo "-------------------------------------------------"
+      ;;
+    3)
       echo "--- Fetching DSPM-Sidecar logs... ---"
       # This command finds the pod name automatically and tails the log
-      POD_NAME=$(kubectl get pods -n netskope -o jsonpath='{.items[?(@.metadata.labels.app\.kubernetes\.io/name=="dspm-sidecar")].metadata.name}')
+      POD_NAME=$(kubectl get pods -n netskope | grep dspm-sidecar | awk '{print $1}')
       if [ -n "$POD_NAME" ]; then
         kubectl exec -it -n netskope "$POD_NAME" -- tail -50 logs/netskopedspm.log
       else
@@ -150,12 +157,12 @@ while true; do
       fi
       echo "---------------------------------------"
       ;;
-    3)
+    4)
       echo "Exiting management mode."
       break
       ;;
     *)
-      echo "Invalid option. Please enter a number between 1 and 3."
+      echo "Invalid option. Please enter a number between 1 and 4."
       ;;
   esac
 done

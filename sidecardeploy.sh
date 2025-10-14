@@ -123,6 +123,9 @@ helm upgrade --install netskope netskope --namespace netskope --create-namespace
 echo "🎉 Helm chart deployed!"
 
 # --- 9. Post-Deployment Management Menu ---
+echo "The build process can take some time, usually between 15 - 45 minutes"
+echo "Please use the below menu options to check the build status"
+echo "When Option 1 shows both container status as "Running" - the process should be completed"
 echo "Entering management mode..."
 
 while true; do

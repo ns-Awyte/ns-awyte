@@ -68,7 +68,7 @@ echo "✅ Minikube installed successfully."
 echo "🚀 Starting Minikube cluster with custom resources... (This may take a few minutes)"
 # Use 'sg' to execute the command with the new group permissions
 # Added --cpus and --memory flags to allocate more resources
-sg docker -c "minikube start --cpus=4 --memory=12g"
+sg docker -c "minikube start --cpus=6 --memory=16g"
 
 # --- 6. Install kubectl & Helm ---
 echo "⚙️  Installing kubectl and Helm via snap..."

@@ -10,7 +10,7 @@ sudo apt install curl -y
 #Download Telegraf gpg key for repo
 sudo curl -fsSL https://repos.influxdata.com/influxdata-archive_compat-exp2029.key | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/influx.gpg
 sudo chmod 644 /etc/apt/trusted.gpg.d/influx.gpg
-sudo add-apt-repository "deb https://repos.influxdata.com/ubuntu jammy stable"
+sudo add-apt-repository -y "deb https://repos.influxdata.com/ubuntu jammy stable"
 #Update apt repo list and install Telegraf agent
 sudo apt update && sudo apt install telegraf -y
 #Update Telegraf Config file

@@ -22,7 +22,7 @@ sudo curl -fsSL https://repos.influxdata.com/influxdata-archive_compat-exp2029.k
 sudo chmod 644 /etc/apt/trusted.gpg.d/influx.gpg
 sudo add-apt-repository "deb https://repos.influxdata.com/ubuntu jammy stable"
 #Install InfluxDB
-sudo apt-get update && sudo apt-get install influxdb2 -y
+sudo apt-get update && sudo apt-get install influxdb -y
 #Enable InfluxDB service
 sudo systemctl enable --now influxdb
 #Open InfluxDB port so Publishers can send their metrics to it

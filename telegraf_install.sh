@@ -5,14 +5,12 @@ echo "This will install the Telegraf service onto your Publisher"
 read -p 'Please enter your Publishers hostname, followed by Enter: ' PubHost
 #Prompt user for InfluxDB/Grafana Monitoring server IP and set as PubIP variable
 read -p 'Please enter your InfluxDB Monitoring Server IP Address (eg: 10.213.1.111), followed by Enter: ' PubIP
-#Add Telegraf repo to apt sources list
-sudo bash -c "sudo cat <<'EOF' | sudo tee /etc/apt/sources.list.d/influxdata.list
-deb https://repos.influxdata.com/ubuntu $(lsb_release -cs) stable
-EOF"
 #Download curl - as removed post r108
 sudo apt install curl -y
 #Download Telegraf gpg key for repo
-sudo curl -sL https://repos.influxdata.com/influxdata-archive_compat.key | sudo apt-key add -
+sudo curl -fsSL https://repos.influxdata.com/influxdata-archive_compat-exp2029.key | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/influx.gpg
+sudo chmod 644 /etc/apt/trusted.gpg.d/influx.gpg
+sudo add-apt-repository "deb https://repos.influxdata.com/ubuntu jammy stable"
 #Update apt repo list and install Telegraf agent
 sudo apt update && sudo apt install telegraf -y
 #Update Telegraf Config file

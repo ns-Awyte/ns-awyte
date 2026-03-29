@@ -20,7 +20,7 @@ sudo apt install curl -y
 #Add InfluxDB gpg Key for repo
 sudo curl -fsSL https://repos.influxdata.com/influxdata-archive_compat-exp2029.key | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/influx.gpg
 sudo chmod 644 /etc/apt/trusted.gpg.d/influx.gpg
-sudo add-apt-repository "deb https://repos.influxdata.com/ubuntu jammy stable"
+sudo add-apt-repository -y "deb https://repos.influxdata.com/ubuntu jammy stable"
 #Install InfluxDB
 sudo apt-get update && sudo apt-get install influxdb -y
 #Enable InfluxDB service
@@ -38,7 +38,7 @@ curl -fsSL https://packages.grafana.com/gpg.key| sudo gpg --dearmor -o /etc/apt/
 #Change permissions on gpg key so apt user can utilise it
 sudo chmod 644 /etc/apt/trusted.gpg.d/grafana.gpg
 #Add Grafana repo to apt
-sudo add-apt-repository "deb https://packages.grafana.com/oss/deb stable main"
+sudo add-apt-repository -y "deb https://packages.grafana.com/oss/deb stable main"
 #Install Grafana
 sudo apt update && sudo apt -y install grafana
 #Open Grafana Web Interface port

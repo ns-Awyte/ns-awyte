@@ -18,11 +18,11 @@ sudo rm -rf /home/ubuntu/resources/ /home/ubuntu/logs/ /home/ubuntu/publisher* /
 #Download curl - as removed post r108
 sudo apt install curl -y
 #Add InfluxDB gpg Key for repo
-sudo curl -sL https://repos.influxdata.com/influxdata-archive_compat.key | sudo apt-key add -
-#Add InfluxDB repo to apt sources 
-echo "deb https://repos.influxdata.com/ubuntu focal stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
+sudo curl -fsSL https://repos.influxdata.com/influxdata-archive_compat-exp2029.key | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/influx.gpg
+sudo chmod 644 /etc/apt/trusted.gpg.d/influx.gpg
+sudo add-apt-repository "deb https://repos.influxdata.com/ubuntu jammy stable"
 #Install InfluxDB
-sudo apt-get update && sudo apt-get install influxdb -y
+sudo apt-get update && sudo apt-get install influxdb2 -y
 #Enable InfluxDB service
 sudo systemctl enable --now influxdb
 #Open InfluxDB port so Publishers can send their metrics to it
